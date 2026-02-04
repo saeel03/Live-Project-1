@@ -1,0 +1,30 @@
+.invite-form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 24px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.invite-form-container .ant-form-item-label > label {
+  font-weight: 500;
+  color: #333;
+}
+
+.invite-form-container .ant-input,
+.invite-form-container .ant-select-selector {
+  height: 40px;
+  border-radius: 6px;
+}
+
+.invite-button {
+  width: 100%;
+  height: 42px;
+  font-weight: 500;
+  border-radius: 6px;
+}
+
+.invite-button:hover {
+  opacity: 0.9;
+}
