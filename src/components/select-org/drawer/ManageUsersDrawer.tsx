@@ -9,7 +9,7 @@ interface ManageUsersDrawerProps {
   organizationName: string;
 }
 
-export const ManageUsersDrawer = ({ open, onClose, organizationName }: ManageUsersDrawerProps) => {
+export const ManageUsersDrawer = (props: ManageUsersDrawerProps) => {
   const [showAddUser, setShowAddUser] = useState(false);
 
   return (
@@ -18,16 +18,15 @@ export const ManageUsersDrawer = ({ open, onClose, organizationName }: ManageUse
       closable={false}
       placement="right"
       size="large"
-     
       onClose={() => {
-        onClose();
+        props.onClose(); 
         setShowAddUser(false);
       }}
-      open={open}
+      open={props.open} 
     >
       {showAddUser ? (
         <AddUserForm
-          organizationName={organizationName}
+          organizationName={props.organizationName} 
           onCancel={() => setShowAddUser(false)}
           onFinish={(values) => {
              console.log("Add User Values:", values);
@@ -36,7 +35,7 @@ export const ManageUsersDrawer = ({ open, onClose, organizationName }: ManageUse
         />
       ) : (
         <>
-          <h3>Manage users for {organizationName}</h3>
+          <h3>Manage users for {props.organizationName}</h3> 
           <div style={{ marginBottom: 16, display: 'flex', justifyContent: 'flex-end' }}>
             <Button type="primary" onClick={() => setShowAddUser(true)}> Add User</Button>
           </div>
@@ -44,7 +43,7 @@ export const ManageUsersDrawer = ({ open, onClose, organizationName }: ManageUse
               <UserTable/>
           </div>
           <div style={{ marginTop: 16, display: 'flex', justifyContent: 'flex-end', paddingTop:"330px" }}>
-            <Button type="primary" onClick={onClose}>Close</Button>
+            <Button type="primary" onClick={props.onClose}>Close</Button>
           </div>
         </>
       )}
