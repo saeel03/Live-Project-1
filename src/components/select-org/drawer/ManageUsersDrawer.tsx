@@ -24,8 +24,8 @@ export const ManageUsersDrawer = (props: ManageUsersDrawerProps) => {
       }}
       open={props.open} 
     >
-      {showAddUser ? (
-        <AddUserForm
+    {showAddUser ? 
+        (<AddUserForm
           organizationName={props.organizationName} 
           onCancel={() => setShowAddUser(false)}
           onFinish={(values) => {
@@ -33,7 +33,7 @@ export const ManageUsersDrawer = (props: ManageUsersDrawerProps) => {
              setShowAddUser(false);
           }}
         />
-      ) : (
+      ) :(
         <>
           <h3>Manage users for {props.organizationName}</h3> 
           <div style={{ marginBottom: 16, display: 'flex', justifyContent: 'flex-end' }}>
@@ -42,8 +42,8 @@ export const ManageUsersDrawer = (props: ManageUsersDrawerProps) => {
           <div>
               <UserTable/>
           </div>
-          <div style={{ marginTop: 16, display: 'flex', justifyContent: 'flex-end', paddingTop:"330px" }}>
-            <Button type="primary" onClick={props.onClose}>Close</Button>
+          <div style={{ marginTop: 16, display: 'flex', justifyContent: 'flex-end', paddingTop:"300px" }}>
+            <Button type="primary" onClick={props.onClose}>Cancel</Button>
           </div>
         </>
       )}

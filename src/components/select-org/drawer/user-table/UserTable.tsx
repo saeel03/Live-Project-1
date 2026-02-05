@@ -56,7 +56,7 @@ const UserTable = () => {
   return (
     <div>
 
-        <Table<Iusers> columns={columns}  dataSource={data}/>
+        <Table<Iusers> pagination={false} columns={columns}  dataSource={data}/>
 
 
       

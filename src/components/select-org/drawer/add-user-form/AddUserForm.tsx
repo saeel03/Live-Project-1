@@ -20,55 +20,55 @@ const AddUserForm: React.FC<AddUserFormProps> = (props) => {
 
   return (
     <div>
-      <h3>Create users for {props.organizationName}</h3>
+      <h3>Add User</h3>
       <Form
         form={form}
         layout="vertical"
         onFinish={props.onFinish}
-        className="invite-form-container"
+        //className="invite-form-container"
       >
         <Form.Item
           label="First Name"
           name="firstname"
-          rules={[{ required: true, message: 'Please enter first name' }]}
+          rules={[{ required: true, message: 'First Name required' }]}
         >
-          <Input />
+          <Input placeholder="Enter first name" />
         </Form.Item>
 
         <Form.Item
           label="Last Name"
           name="lastname"
-          rules={[{ required: true, message: 'Please enter last name' }]}
+          rules={[{ required: true, message: 'Last Name required' }]}
         >
-          <Input />
+          <Input placeholder="Enter last name" />
         </Form.Item>
 
         <Form.Item
           label="Email"
           name="email"
           rules={[
-            { required: true, message: "Please enter your email" },
+            { required: true, message: "Email required" },
             { type: 'email', message: 'Please enter a valid email' }
           ]}
         >
-          <Input />
+          <Input placeholder="Enter email" />
         </Form.Item>
 
         <Form.Item
           label="Mobile Number"
           name="mobile"
-          rules={[{ required: true, message: "Please enter mobile number" }]}
+          rules={[{ required: true, message: "Mobile Number required" }]}
         >
-          <Input />
+          <Input placeholder="Enter mobile number" />
         </Form.Item>
 
         <Form.Item
           label="Role"
           name="role"
-          rules={[{ required: true, message: "Please select a role" }]}
+          rules={[{ required: true, message: "Role required" }]}
         >
           
-            <Select  options={[
+            <Select placeholder="Select role" options={[
         { value: 'admin', label: 'Admin' },
         { value: 'user', label: 'User' }
         
@@ -79,14 +79,16 @@ const AddUserForm: React.FC<AddUserFormProps> = (props) => {
         </Form.Item>
 
         <Form.Item>
-          <Space>
-            <Button onClick={props.onCancel}>
-              Cancel
-            </Button>
-            <Button type="primary" htmlType="submit">
-              Save
-            </Button>
-          </Space>
+          <div  style={{ display: 'flex', justifyContent: 'flex-end' , paddingTop: '180px'}}>
+            <Space>
+              <Button onClick={props.onCancel}>
+                Cancel
+              </Button>
+              <Button type="primary" htmlType="submit">
+                Add
+              </Button>
+            </Space>
+          </div>
         </Form.Item>
       </Form>
     </div>
