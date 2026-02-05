@@ -42,9 +42,9 @@ const AddNotificationForm = ({ onClose }: IAddNotificationFormProps) => {
             <Form.Item
                 label="Description"
                 name = "description"
-                rules={[{required:true, message:"Title required"}]}>
+                rules={[{required:true, message:"Description required"}]}>
 
-                    <Input placeholder="Enter title"/>
+                    <Input placeholder="Enter Description"/>
             </Form.Item>
 
             <Form.Item
@@ -58,7 +58,7 @@ const AddNotificationForm = ({ onClose }: IAddNotificationFormProps) => {
           <Radio value="custom">Custom Reply Address</Radio>
         </Radio.Group>
       </Form.Item>
-      
+
       <EmailTemplate/>
 
       <div style={{

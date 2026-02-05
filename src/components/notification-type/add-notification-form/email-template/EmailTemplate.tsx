@@ -10,8 +10,8 @@ const EmailTemplate = () => {
         children: <><Form.Item 
         label="Subject"
                 name = "subject"
-                rules={[{required:true, message:"Title required"}]}>
-                <Input/>
+                rules={[{required:true, message:"Subject required"}]}>
+                <Input placeholder='Enter subject'/>
 
         </Form.Item>
 
