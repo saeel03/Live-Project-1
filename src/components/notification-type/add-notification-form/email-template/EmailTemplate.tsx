@@ -1,4 +1,3 @@
-import React from 'react'
 import { Collapse, Form, Input } from 'antd'
 import { HtmlButton,BtnBold, BtnItalic, BtnRedo, BtnUnderline, BtnUndo, Editor, Toolbar, EditorProvider } from 'react-simple-wysiwyg'
 

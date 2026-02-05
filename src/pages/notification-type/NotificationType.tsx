@@ -1,5 +1,5 @@
 import { Button } from 'antd'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 import AddNotifiactionDrawer from '../../components/notification-type/addnew-notification-drawer/AddNotifiactionDrawer'
 

@@ -58,6 +58,7 @@ const AddNotificationForm = ({ onClose }: IAddNotificationFormProps) => {
           <Radio value="custom">Custom Reply Address</Radio>
         </Radio.Group>
       </Form.Item>
+      
       <EmailTemplate/>
 
       <div style={{
