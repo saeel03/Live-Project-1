@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button, Table } from "antd";
 import "./SelectOrg.css";
-import { ManageUsersDrawer } from "./drawer/ManageUsersDrawer";
+import { ManageUsersDrawer } from "../../components/select-org/drawer/ManageUsersDrawer";
 import { useOrganizations } from "../../hooks/useOrganizations";
 import type { Organization } from "../../api/organizationService";
 
