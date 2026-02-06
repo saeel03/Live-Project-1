@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 import AddNotifiactionDrawer from '../../components/notification-type/addnew-notification-drawer/AddNotifiactionDrawer'
 
-//import TypeTable from '../../components/notification-type/notificationtype-table/TypeTable'
+import TypeTable from '../../components/notification-type/notificationtype-table/TypeTable'
 
 const NotificationType = () => {
     const [drawerOpen, setDrawerOpen] = useState <boolean>(false)
@@ -26,7 +26,7 @@ const NotificationType = () => {
             </div>
         </div>
 
-        {/* <TypeTable/> */}
+        <TypeTable /> 
 
         <AddNotifiactionDrawer open={drawerOpen} onClose={()=>{
             setDrawerOpen(false)
