@@ -13,9 +13,6 @@ function App() {
 
             <Route path="/" element={<NotificationType/>}/>
             <Route path="/InviteForm" element={<InviteForm/>}/>
-
-
-            
           </Routes>
           
                 
