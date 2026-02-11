@@ -6,6 +6,7 @@ const EmailTemplate = () => {
   return (
     <div>
       <Collapse
+      defaultActiveKey={['1']}
       items={[{key:'1' , label: 'Email Template' ,
         children: <><Form.Item 
         label="Subject"

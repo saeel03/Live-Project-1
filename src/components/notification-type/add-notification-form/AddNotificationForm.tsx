@@ -1,25 +1,37 @@
 import { Button, Form, Input, Radio } from "antd";
+import { forwardRef, useImperativeHandle } from "react";
 import EmailTemplate from "./email-template/EmailTemplate";
 import {
   EmailRecipientSelect,
   type Recipient,
 } from "@sanketnagwekar/email-lookahead";
+import type { AddNotificationFormRef } from "../addnew-notification-drawer/AddNotifiactionDrawer";
+
 interface IAddNotificationForm {
   title: string;
   description: string;
   replyType: "manage" | "no-reply" | "custom";
   subject: string;
   body: string;
+  "ccRecipients:": Recipient[];
+  "bccRecipients:": Recipient[];
 }
 
 interface IAddNotificationFormProps {
   onClose: () => void;
 }
 
-const AddNotificationForm = ({ onClose }: IAddNotificationFormProps) => {
+const AddNotificationForm = forwardRef<
+  AddNotificationFormRef,
+  IAddNotificationFormProps
+>(({ onClose }, ref) => {
   const [form] = Form.useForm<IAddNotificationForm>();
 
-  
+  useImperativeHandle(ref, () => ({
+    resetForm: () => {
+      form.resetFields();
+    },
+  }));
 
   const availableRecipients: Recipient[] = [
     {
@@ -41,9 +53,21 @@ const AddNotificationForm = ({ onClose }: IAddNotificationFormProps) => {
     },
   ];
 
-
   const onFinish = (values: IAddNotificationForm) => {
-    console.log("Form Values:", values);
+    const formattedValues = {
+      ...values,
+      "ccRecipients:":
+        values["ccRecipients:"].map(
+          (recipient: Recipient) => recipient.email,
+        ) || [],
+      "bccRecipients:":
+        values["bccRecipients:"]?.map(
+          (recipient: Recipient) => recipient.email,
+        ) || [],
+    };
+    console.log("Form Values:", formattedValues);
+
+    form.resetFields();
   };
 
   return (
@@ -87,26 +111,23 @@ const AddNotificationForm = ({ onClose }: IAddNotificationFormProps) => {
 
         <Form.Item
           label="CC Recipients:"
-          name="CC Recipients:"
+          name="ccRecipients:"
           rules={[{ required: true, message: "Title required" }]}
         >
           <EmailRecipientSelect
             placeholder="Add CC recipients"
             recipients={availableRecipients}
-          
           />
         </Form.Item>
 
         <Form.Item
           label="BCC Recipients:"
-          name="BCC Recipients:"
+          name="bccRecipients:"
           rules={[{ required: true, message: "Title required" }]}
         >
           <EmailRecipientSelect
             placeholder="Add BCC recipients"
             recipients={availableRecipients}
-            
-            // onChange={setBccRecipients}
           />
         </Form.Item>
 
@@ -134,6 +155,6 @@ const AddNotificationForm = ({ onClose }: IAddNotificationFormProps) => {
       </Form>
     </div>
   );
-};
+});
 
 export default AddNotificationForm;
